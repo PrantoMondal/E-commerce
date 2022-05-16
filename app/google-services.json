@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "72490707548",
+    "project_id": "fir-pranto",
+    "storage_bucket": "fir-pranto.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:72490707548:android:20136934785ea6d4b89499",
+        "android_client_info": {
+          "package_name": "com.example.ecomadmin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "72490707548-po2otnp32ectpkf9kcntokfgtriq6ndm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDalwsYfC2F5Us2WS51RZVTMCuCQY-DvDI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "72490707548-po2otnp32ectpkf9kcntokfgtriq6ndm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
