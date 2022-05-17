@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.ecomadmin.adapters.DashboardItemAdapters
 import com.example.ecomadmin.databinding.FragmentDashboardBinding
+import com.example.ecomadmin.models.DashboardItemType
 import com.example.ecomadmin.viewmodels.LoginViewModel
 
 
@@ -28,13 +29,23 @@ class DashboardFragment : Fragment() {
             }
         }
 
-        val adapter = DashboardItemAdapters()
+        val adapter = DashboardItemAdapters{
+            navigateToDashboardItemPage(it)
+        }
         val glm = GridLayoutManager(requireActivity(),2)
         binding.dashboardRV.layoutManager = glm
         binding.dashboardRV.adapter = adapter
 
 
         return binding.root
+    }
+
+    private fun navigateToDashboardItemPage(it: DashboardItemType) {
+        when(it){
+            DashboardItemType.ADD_PRODUCT -> findNavController().navigate(R.id.action_dashboardFragment_to_addProductFragment)
+            DashboardItemType.VIEW_PRODUCT -> findNavController().navigate(R.id.action_dashboardFragment_to_viewProductFragment)
+            DashboardItemType.CATEGORY -> findNavController().navigate(R.id.action_dashboardFragment_to_categoryFragment)
+        }
     }
 
 }

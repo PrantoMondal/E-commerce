@@ -13,6 +13,15 @@
         <action
             android:id="@+id/action_dashboardFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_addProductFragment"
+            app:destination="@id/addProductFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_viewProductFragment"
+            app:destination="@id/viewProductFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_categoryFragment"
+            app:destination="@id/categoryFragment" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -29,4 +38,9 @@
         android:name="com.example.ecomadmin.ViewProductFragment"
         android:label="fragment_view_product"
         tools:layout="@layout/fragment_view_product" />
+    <fragment
+        android:id="@+id/categoryFragment"
+        android:name="com.example.ecomadmin.CategoryFragment"
+        android:label="fragment_category"
+        tools:layout="@layout/fragment_category" />
 </navigation>
