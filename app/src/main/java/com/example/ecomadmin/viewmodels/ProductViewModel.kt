@@ -1,4 +1,9 @@
 package com.example.ecomadmin.viewmodels
 
-class ProductViewModel {
+import androidx.lifecycle.ViewModel
+import com.example.ecomadmin.repos.ProductRepository
+
+class ProductViewModel:ViewModel() {
+    val repository = ProductRepository()
+
 }

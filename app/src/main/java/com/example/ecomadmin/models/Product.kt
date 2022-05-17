@@ -1,5 +1,6 @@
 package com.example.ecomadmin.models
 
+
 data class Product(
     var id:String? = null,
     var name:String? = null,
@@ -8,5 +9,6 @@ data class Product(
     var imageUrl:String? = null,
     var salePrice:Double = 0.0,
     var isAvailable:Boolean = true,
+    var rating: Double = 0.0
 
 )
