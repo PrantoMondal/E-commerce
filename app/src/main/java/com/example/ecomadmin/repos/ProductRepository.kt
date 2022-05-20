@@ -11,7 +11,8 @@ class ProductRepository {
 
     fun getAllCategories():LiveData<List<String>>{
         val catLD = MutableLiveData<List<String>>()
-        db.collection(collectionCategory).addSnapshotListener { value, error ->
+        db.collection(collectionCategory)
+            .addSnapshotListener { value, error ->
             if (error!=null){
                 return@addSnapshotListener
             }
