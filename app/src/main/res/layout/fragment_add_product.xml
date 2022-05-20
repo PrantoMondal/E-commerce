@@ -79,6 +79,7 @@
                     android:text="Select Date"
                     android:textSize="16sp"
                     android:gravity="left"
+                    android:id="@+id/dateBtn"
                     android:textAllCaps="false"
                     style="@style/Widget.AppCompat.Button.Borderless"
                     android:layout_weight="1"
@@ -90,7 +91,7 @@
                     android:layout_weight="2"
                     android:gravity="right"
                     tools:text="09/05/2002"
-
+                    android:id="@+id/dateTV"
                     android:textSize="18sp"
                     />
             </LinearLayout>
@@ -107,25 +108,43 @@
                     android:layout_height="wrap_content"
                     android:text="Select Image"
                     android:layout_weight="2"
-                    android:textSize="18sp"/>
+                    android:textSize="20sp"/>
 
                 <ImageButton
                     android:layout_width="70dp"
                     android:layout_height="50dp"
                     android:layout_marginStart="20dp"
+                    android:id="@+id/captureBtn"
                     android:src="@drawable/ic_baseline_camera_alt_24"
                     android:scaleType="centerCrop"/>
                 <ImageButton
                     android:layout_width="70dp"
                     android:layout_height="50dp"
                     android:layout_marginStart="20dp"
+                    android:id="@+id/galleryBtn"
                     android:src="@drawable/ic_baseline_insert_photo_24"
                     android:scaleType="centerCrop"/>
 
 
             </LinearLayout>
 
-
+<ImageView
+    android:layout_marginTop="10dp"
+    android:padding="5dp"
+    android:layout_width="200dp"
+    android:layout_height="150dp"
+    android:id="@+id/productIV"
+    android:scaleType="centerCrop"
+    android:layout_gravity="center"
+    android:src="@mipmap/ic_launcher"/>
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="Save"
+                android:background="#0693e3"/>
 
 
         </LinearLayout>
