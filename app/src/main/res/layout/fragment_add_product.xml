@@ -31,17 +31,17 @@
 
             <EditText
                 android:inputType="numberDecimal"
-                android:id="@+id/PurchasePriceET"
+                android:id="@+id/purchasePriceET"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Purchase Price" />
 
             <EditText
                 android:inputType="numberDecimal"
-                android:id="@+id/sellPriceET"
+                android:id="@+id/salePriceET"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Sell Price" />
+                android:hint="Sale Price" />
             <EditText
                 android:inputType="numberDecimal"
                 android:id="@+id/quantityET"
@@ -141,6 +141,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_gravity="center"
                 android:layout_width="150dp"
+                android:id="@+id/saveBtn"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 android:text="Save"
