@@ -5,149 +5,166 @@
     <data>
 
     </data>
-
-    <ScrollView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".AddProductFragment">
+        android:layout_height="match_parent">
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="15dp"
-            android:orientation="vertical">
-
-            <EditText
-                android:id="@+id/nameInputET"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Product Name" />
-
-            <EditText
-                android:id="@+id/descriptionInputET"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Description" />
-
-            <EditText
-                android:inputType="numberDecimal"
-                android:id="@+id/purchasePriceET"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Purchase Price" />
-
-            <EditText
-                android:inputType="numberDecimal"
-                android:id="@+id/salePriceET"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Sale Price" />
-            <EditText
-                android:inputType="numberDecimal"
-                android:id="@+id/quantityET"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Quantity" />
+            android:layout_height="match_parent"
+            tools:context=".AddProductFragment">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="2dp"
-                android:weightSum="3">
-                <TextView
-                    android:layout_width="wrap_content"
+                android:orientation="vertical"
+                android:padding="15dp">
+
+                <EditText
+                    android:id="@+id/nameInputET"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Select Category"
-                    android:layout_weight="1"
-                    android:textSize="18sp"/>
+                    android:hint="Product Name" />
 
-                <Spinner
-                    android:layout_width="wrap_content"
+                <EditText
+                    android:id="@+id/descriptionInputET"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:id="@+id/catSP"/>
-            </LinearLayout>
+                    android:hint="Description" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="2dp"
-                android:weightSum="3">
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:text="Select Date"
-                    android:textSize="16sp"
-                    android:gravity="left"
-                    android:id="@+id/dateBtn"
-                    android:textAllCaps="false"
-                    style="@style/Widget.AppCompat.Button.Borderless"
-                    android:layout_weight="1"
-                    android:textColor="@color/black"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
+                <EditText
+                    android:id="@+id/purchasePriceET"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:gravity="right"
-                    tools:text="09/05/2002"
-                    android:id="@+id/dateTV"
-                    android:textSize="18sp"
-                    />
-            </LinearLayout>
+                    android:hint="Purchase Price"
+                    android:inputType="numberDecimal" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="3dp"
-                android:layout_marginTop="5dp"
-                android:weightSum="3">
-                <TextView
+                <EditText
+                    android:id="@+id/salePriceET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Sale Price"
+                    android:inputType="numberDecimal" />
+
+                <EditText
+                    android:id="@+id/quantityET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Quantity"
+                    android:inputType="numberDecimal" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:padding="2dp"
+                    android:weightSum="3">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Select Category"
+                        android:textSize="18sp" />
+
+                    <Spinner
+                        android:id="@+id/catSP"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:padding="2dp"
+                    android:weightSum="3">
+
+                    <Button
+                        android:id="@+id/dateBtn"
+                        style="@style/Widget.AppCompat.Button.Borderless"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:text="Select Date"
+                        android:textAllCaps="false"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/dateTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:gravity="right"
+                        android:textSize="18sp"
+                        tools:text="09/05/2002" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:padding="3dp"
+                    android:weightSum="3">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="2"
+                        android:text="Select Image"
+                        android:textSize="20sp" />
+
+                    <ImageButton
+                        android:id="@+id/captureBtn"
+                        android:layout_width="70dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="20dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_baseline_camera_alt_24" />
+
+                    <ImageButton
+                        android:id="@+id/galleryBtn"
+                        android:layout_width="70dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="20dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_baseline_insert_photo_24" />
+
+
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/productIV"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
                     android:layout_gravity="center"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Select Image"
-                    android:layout_weight="2"
-                    android:textSize="20sp"/>
+                    android:layout_marginTop="10dp"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/ic_launcher" />
 
-                <ImageButton
-                    android:layout_width="70dp"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="20dp"
-                    android:id="@+id/captureBtn"
-                    android:src="@drawable/ic_baseline_camera_alt_24"
-                    android:scaleType="centerCrop"/>
-                <ImageButton
-                    android:layout_width="70dp"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="20dp"
-                    android:id="@+id/galleryBtn"
-                    android:src="@drawable/ic_baseline_insert_photo_24"
-                    android:scaleType="centerCrop"/>
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/saveBtn"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:background="#0693e3"
+                    android:text="Save"
+                    android:textColor="@color/black" />
 
 
             </LinearLayout>
+        </ScrollView>
 
-<ImageView
-    android:layout_marginTop="10dp"
-    android:padding="5dp"
-    android:layout_width="200dp"
-    android:layout_height="150dp"
-    android:id="@+id/productIV"
-    android:scaleType="centerCrop"
-    android:layout_gravity="center"
-    android:src="@mipmap/ic_launcher"/>
-            <androidx.appcompat.widget.AppCompatButton
-                android:layout_marginTop="20dp"
-                android:layout_gravity="center"
-                android:layout_width="150dp"
-                android:id="@+id/saveBtn"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:text="Save"
-                android:background="#0693e3"/>
-
-
-        </LinearLayout>
-    </ScrollView>
+    <ProgressBar
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/mProgressbar"
+        android:layout_centerInParent="true"/>
+</RelativeLayout>
 </layout>

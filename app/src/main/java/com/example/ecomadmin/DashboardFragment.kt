@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.ecomadmin.adapters.DashboardItemAdapters
+import com.example.ecomadmin.adapters.DashboardItemAdapter
 import com.example.ecomadmin.databinding.FragmentDashboardBinding
 import com.example.ecomadmin.models.DashboardItemType
 import com.example.ecomadmin.viewmodels.LoginViewModel
@@ -29,7 +29,7 @@ class DashboardFragment : Fragment() {
             }
         }
 
-        val adapter = DashboardItemAdapters{
+        val adapter = DashboardItemAdapter{
             navigateToDashboardItemPage(it)
         }
         val glm = GridLayoutManager(requireActivity(),2)

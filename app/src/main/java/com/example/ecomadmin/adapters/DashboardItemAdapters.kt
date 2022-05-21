@@ -8,31 +8,28 @@ import com.example.ecomadmin.models.DashboardItem
 import com.example.ecomadmin.models.DashboardItemType
 import com.example.ecomadmin.models.dashboardItemList
 
-class DashboardItemAdapters (val callback:(DashboardItemType) -> Unit) : RecyclerView.Adapter<DashboardItemAdapters.DashboardViewHolder>() {
+class DashboardItemAdapter(val callback: (DashboardItemType) -> Unit) : RecyclerView.Adapter<DashboardItemAdapter.DashboardViewHolder>(){
 
-    class DashboardViewHolder(val binding:DashboardRowBinding)
-        :RecyclerView.ViewHolder(binding.root){
-            fun bind(item:DashboardItem){
-                binding.item = item
-            }
+    class DashboardViewHolder(val binding: DashboardRowBinding)
+        : RecyclerView.ViewHolder(binding.root) {
+        fun bind(item: DashboardItem) {
+            binding.item = item
         }
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DashboardViewHolder {
         val binding = DashboardRowBinding.inflate(
-            LayoutInflater.from(parent.context), parent,false
+            LayoutInflater.from(parent.context), parent, false
         )
         return DashboardViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: DashboardViewHolder, position: Int) {
-       holder.bind(dashboardItemList.get(position))
-
+        holder.bind(dashboardItemList.get(position))
         holder.itemView.setOnClickListener {
             callback(dashboardItemList.get(position).type)
         }
     }
 
-    override fun getItemCount(): Int  = dashboardItemList.size
-
-
+    override fun getItemCount() = dashboardItemList.size
 }

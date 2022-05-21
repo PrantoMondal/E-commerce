@@ -43,4 +43,9 @@
         android:name="com.example.ecomadmin.CategoryFragment"
         android:label="fragment_category"
         tools:layout="@layout/fragment_category" />
+    <fragment
+        android:id="@+id/productDetailsFragment"
+        android:name="com.example.ecomadmin.ProductDetailsFragment"
+        android:label="fragment_product_details"
+        tools:layout="@layout/fragment_product_details" />
 </navigation>

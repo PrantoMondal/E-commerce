@@ -24,99 +24,104 @@ import com.example.ecomadmin.viewmodels.ProductViewModel
 import com.google.firebase.Timestamp
 
 class AddProductFragment : Fragment() {
-
-    private val productViewModel:ProductViewModel by activityViewModels()
-    private lateinit var binding:FragmentAddProductBinding
-    private var category:String? = null
-    private var timeStamp: Timestamp? = null
+    private val productViewModel: ProductViewModel by activityViewModels()
+    private lateinit var binding: FragmentAddProductBinding
+    private var category: String? = null
     private var imageUrl: String? = null
     private var bitmap: Bitmap? = null
+    private var timeStamp: Timestamp? = null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentAddProductBinding.inflate(inflater,container,false)
-
-        productViewModel.getCategories().observe(viewLifecycleOwner){
-            if (!it.isNullOrEmpty()){
+        binding = FragmentAddProductBinding.inflate(inflater, container, false)
+        productViewModel.getCategories().observe(viewLifecycleOwner) {
+            if (!it.isNullOrEmpty()) {
                 val adapter = ArrayAdapter<String>(requireActivity(),
-                android.R.layout.simple_spinner_dropdown_item,it)
+                    android.R.layout.simple_spinner_dropdown_item, it)
                 binding.catSP.adapter = adapter
             }
         }
-        binding.catSP.onItemSelectedListener = object :AdapterView.OnItemSelectedListener{
-            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-                category = p0!!.getItemAtPosition(p2).toString()
+
+        binding.catSP.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                category = parent!!.getItemAtPosition(position).toString()
             }
 
-            override fun onNothingSelected(p0: AdapterView<*>?) {
+            override fun onNothingSelected(parent: AdapterView<*>?) {
                 TODO("Not yet implemented")
             }
 
-
         }
+
         binding.dateBtn.setOnClickListener {
             DatePickerFragment {
-                binding.dateTV.text = getFormattedDate(it.seconds,"dd/MM/yyyy")
-            }.show(childFragmentManager,null)
-
+                timeStamp = it
+                binding.dateTV.text = getFormattedDate(it.seconds * 1000, "dd/MM/yyyy")
+            }.show(childFragmentManager, null)
         }
+
         binding.captureBtn.setOnClickListener {
             dispatchTakePictureIntent()
         }
-         binding.saveBtn.setOnClickListener {
-             val name = binding.nameInputET.text.toString()
-             val description = binding.descriptionInputET.text.toString()
-             val purchasePrice = binding.purchasePriceET.text.toString()
-             val salePrice = binding.salePriceET.text.toString()
-             val qty = binding.quantityET.text.toString()
+
+        binding.saveBtn.setOnClickListener {
+            val name = binding.nameInputET.text.toString()
+            val description = binding.descriptionInputET.text.toString()
+            val purchaseprice = binding.purchasePriceET.text.toString()
+            val salePrice = binding.salePriceET.text.toString()
+            val qty = binding.quantityET.text.toString()
             // TODO: validate fields
-             productViewModel.uploadImage(bitmap!!){downloadUrl ->
+            binding.mProgressbar.visibility = View.VISIBLE
+            productViewModel.uploadImage(bitmap!!) {downloadUrl ->
                 imageUrl = downloadUrl
-                 val product = Product(
-                     name = name,
-                     description = description,
-                     salePrice = salePrice.toDouble(),
-                     category = category,
-                     imageUrl = imageUrl
-                 )
-                 val purchase = Purchase(
-                     purchaseDate = timeStamp,
-                     purchasePrice = purchasePrice.toDouble(),
-                     quantity = qty.toDouble()
-                 )
+                val product = Product(
+                    name = name,
+                    description = description,
+                    salePrice = salePrice.toDouble(),
+                    category = category,
+                    imageUrl = imageUrl
+                )
+                val purchase = Purchase(
+                    purchaseDate = timeStamp,
+                    purchasePrice = purchaseprice.toDouble(),
+                    quantity = qty.toDouble()
+                )
+                productViewModel.addProduct(product, purchase)
             }
         }
 
-
-        productViewModel.statusLD.observe(viewLifecycleOwner){
-            if (it == "Success"){
-
-            }
-            else{
-                Toast.makeText(requireActivity(), "Failed to save", Toast.LENGTH_SHORT).show()
+        productViewModel.statusLD.observe(viewLifecycleOwner) {
+            if (it == "Success") {
+                binding.mProgressbar.visibility = View.GONE
+                resetFields()
+            }else {
+                binding.mProgressbar.visibility = View.GONE
+                Toast.makeText(requireActivity(), "failed to save", Toast.LENGTH_SHORT).show()
             }
         }
-
 
         return binding.root
     }
-    private fun resetFields(){
+
+    private fun resetFields() {
         binding.nameInputET.text = null
         binding.descriptionInputET.text = null
+        binding.quantityET.text = null
         binding.purchasePriceET.text = null
         binding.salePriceET.text = null
-        binding.quantityET.text = null
-        
-
     }
-
 
     val resultLauncher = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == Activity.RESULT_OK) {
             bitmap = it.data?.extras?.get("data") as Bitmap
-
+            binding.productIV.setImageBitmap(bitmap)
         }
     }
 
@@ -128,7 +133,5 @@ class AddProductFragment : Fragment() {
             // display error state to the user
         }
     }
-
-
 
 }
